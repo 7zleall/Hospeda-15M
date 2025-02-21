@@ -39,8 +39,8 @@ Siga os passos abaixo para instalar e configurar o painel no seu Termux.
 
 2. **Clone o repositório**:
    ```bash
-   git clone
-   cd bot-manager
+   git clone https://github.com/7zleall/Hospeda-15M.git
+   cd Hospeda-15M
    ```
 
 3. **Dê permissão de execução ao script**:
