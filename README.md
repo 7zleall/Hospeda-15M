@@ -1,10 +1,6 @@
-# Hospeda-15M
+# 🚀 Hospeda-15M: Painel de Gerenciamento de Bots
 
----
-
-# 🚀 Painel de Gerenciamento de Bots
-
-Bem-vindo ao **Painel de Gerenciamento de Bots**! Este é um painel interativo e fácil de usar para gerenciar bots no Termux. Com ele, você pode **ligar**, **desligar**, **hospedar** e **verificar o status** dos seus bots de forma simples e rápida. Ideal para quem trabalha com bots em Python, Java, JavaScript e outras linguagens.
+Bem-vindo ao **Hospeda-15M**! Este é um painel interativo e fácil de usar para gerenciar bots no Termux. Com ele, você pode **ligar**, **desligar**, **hospedar** e **verificar o status** dos seus bots de forma simples e rápida. Ideal para quem trabalha com bots em Python, Java, JavaScript e outras linguagens.
 
 ---
 
@@ -18,7 +14,7 @@ Bem-vindo ao **Painel de Gerenciamento de Bots**! Este é um painel interativo e
 
 ---
 
-## 🛠️ Como Instalar
+## 🛠️ Como Instalar e Usar
 
 Siga os passos abaixo para instalar e configurar o painel no seu Termux.
 
@@ -39,16 +35,23 @@ Siga os passos abaixo para instalar e configurar o painel no seu Termux.
 
 2. **Clone o repositório**:
    ```bash
-   git clone https://github.com/7zleall/Hospeda-15M.git
+   git clone https://github.com/seu-usuario/Hospeda-15M.git
    cd Hospeda-15M
    ```
 
-3. **Dê permissão de execução ao script**:
+3. **Mova o arquivo do bot para a pasta do Hospeda-15M**:
+   - Se o seu bot estiver em outro local, mova-o para a pasta do repositório. Por exemplo:
+     ```bash
+     mv /caminho/do/seu/bot/meu_bot.py ./
+     ```
+   - Certifique-se de que o arquivo do bot esteja na mesma pasta onde está o script `setup.sh`.
+
+4. **Dê permissão de execução ao script**:
    ```bash
    chmod +x setup.sh
    ```
 
-4. **Execute o painel**:
+5. **Execute o painel**:
    ```bash
    ./setup.sh
    ```
@@ -128,11 +131,21 @@ Este projeto está licenciado sob a **MIT License**. Consulte o arquivo [LICENSE
 
 ---
 
+## 📞 Contato
+
+Se tiver dúvidas, sugestões ou quiser colaborar, entre em contato:
+
+- **Discord**: https://discord.gg/leaks15m
+
+---
+
 ## 🌟 Por que Usar Este Painel?
 
 - **Simplicidade**: Interface fácil de usar, mesmo para iniciantes.
 - **Versatilidade**: Suporta múltiplas linguagens de programação.
 - **Eficiência**: Gerencie seus bots de forma rápida e eficiente.
 - **Customização**: Adapte o painel às suas necessidades.
+
+- NOTA LEALZX:Caso vc n consiga baixar o Java no termux pesquise no yt ou no chat gpt 🫡
 
 ---
