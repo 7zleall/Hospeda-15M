@@ -27,6 +27,7 @@ find_bot_file() {
     if [ -f "$FILE" ]; then
         echo "$FILE"
     else
+        dialog --msgbox "Arquivo do bot não encontrado: $FILE" 10 50
         echo ""
     fi
 }
@@ -50,7 +51,7 @@ start_bot() {
     fi
 
     case $LANGUAGE in
-        1) COMMAND="python \"$BOT_FILE\"" ;;
+        1) COMMAND="python3 \"$BOT_FILE\"" ;;
         2) javac "$BOT_FILE" && COMMAND="java -cp $(dirname "$BOT_FILE") $(basename "$BOT_FILE" .java)" ;;
         3) COMMAND="node \"$BOT_FILE\"" ;;
         4) COMMAND="bash \"$BOT_FILE\"" ;;
@@ -58,8 +59,19 @@ start_bot() {
            return ;;
     esac
 
+    # Verifica se o bot já está rodando
+    if tmux has-session -t "$BOT_NAME" 2>/dev/null; then
+        dialog --msgbox "O bot $BOT_NAME já está rodando!" 10 50
+        return
+    fi
+
+    # Inicia o bot em uma nova sessão do tmux
     tmux new-session -d -s "$BOT_NAME" "$COMMAND"
-    dialog --msgbox "Bot $BOT_NAME iniciado com sucesso!" 10 50
+    if [ $? -eq 0 ]; then
+        dialog --msgbox "Bot $BOT_NAME iniciado com sucesso!" 10 50
+    else
+        dialog --msgbox "Erro ao iniciar o bot $BOT_NAME!" 10 50
+    fi
 }
 
 # Função para desligar o bot
@@ -72,9 +84,12 @@ stop_bot() {
         return
     fi
 
-    tmux kill-session -t "$BOT_NAME" 2>/dev/null &&
-    dialog --msgbox "Bot $BOT_NAME desligado com sucesso!" 10 50 ||
-    dialog --msgbox "Erro ao parar o bot!" 10 50
+    tmux kill-session -t "$BOT_NAME" 2>/dev/null
+    if [ $? -eq 0 ]; then
+        dialog --msgbox "Bot $BOT_NAME desligado com sucesso!" 10 50
+    else
+        dialog --msgbox "Erro ao parar o bot $BOT_NAME!" 10 50
+    fi
 }
 
 # Função para verificar status do bot
